@@ -1,0 +1,304 @@
+:root{  /*espacio donde se almacenan variables*/
+   --blanco:#ffffff;
+   --oscuro:#212121;
+   --primario:rgba(255,214,0,1);
+   --secundario:#0097A7;
+   --gris:#f3f1f1;
+}
+
+html{
+   font-size: 62.5%;
+   box-sizing: border-box;
+   scroll-snap-type: y mandatory;
+}
+
+/*scroll snap*/
+.servicio,
+.navegacion_principal,
+.formulario,
+.quien_soy{
+   scroll-snap-align: center;
+   scroll-snap-stop: always;
+}
+
+/* El siguiente código es de la teoria de box sizing para aplicarla a toda la hoja de estilos*/
+
+*, *:before, *:after {
+   box-sizing: inherit;
+}
+body{
+   font-size:16px; /* 1 rem = 10 px. Ahora se usan mas los rem que los pixeles*/
+   font-family: 'Ubuntu', sans-serif;
+   background-image: linear-gradient(to top, var(--gris) 0%, var(--blanco)
+    100%); /*Color degradado de fondo*/
+}
+
+/* ------------------------REGLAS DE TIPOGRAFIA----------------------**/
+h1{
+   font-size: 3rem;
+}
+h2{
+   font-size: 2.8rem;
+}
+
+h3 {
+   font-size: 1.8rem;
+}
+h1, h2, h3 {
+   text-align: center; 
+}
+/* ----------------------------------------------------------------------*/
+
+.titulo span{
+   font-size: 2rem;
+}
+
+.boton{
+   background-color: var(--secundario);
+   color: var(--blanco);
+   padding: 1rem 3rem;
+   margin-top: 4rem;
+   font-size: 1.5rem;
+   text-decoration: none;
+   text-transform: uppercase; /*transformar a mayus*/
+   font-weight: bold;
+   border-radius: 3rem; /*bordes redondeados*/
+   width: auto;
+   text-align: center;
+   border: none;
+}
+.boton:hover{
+   cursor: pointer;
+}
+
+
+/*Utilidades*/
+
+.w-sm-100{
+   width:100%;
+}
+@media (min-width: 768px) {
+   .w-sm-100{
+      width: auto;
+   }
+    
+}
+.flex{
+   display: flex;
+}
+.alinear-derecha{
+   justify-content: flex-end;
+}
+
+.sombra{
+   -webkit-box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.75);
+   -moz-box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.75);
+   box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.75);
+   background-color:var(--blanco);
+   padding: 2rem;
+   border-radius: 1rem;
+}
+@media (min-width: 400px) {
+    boton{
+       width: auto;
+    }
+}
+/*Esta sección contiene el codigo para alinear la barra de
+navegacion*/
+
+.contenedor{
+   max-width: 120rem;
+   /*margin-top: 0; 
+   margin-right: auto;
+   margin-bottom: 0;
+   margin-left: auto;*/
+   margin: 0 auto 0 auto
+}
+.nav_bg{
+   background-color: var(--secundario);
+}
+.navegacion_principal{
+   display: flex;
+   flex-direction: column;
+}
+@media (min-width: 480px) {
+   .navegacion_principal{
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-size: 1rem;
+   }   
+}
+.navegacion_principal a{
+   display: block;
+   text-align: center;
+   padding:1rem /*grosor de la sección*/;
+   color: var(--blanco);
+   text-decoration: none;
+   font-size: 1.7rem;
+}
+.navegacion_principal a:hover{
+   background-color:var(--primario);
+   color:var(--oscuro)
+}
+/**--------------------------------------------------------------------**/
+
+/**----------CODIGO PARA LA SECCION QUE CONTIENE LA IMAGEN---------------**/
+
+.hero{
+   background-image: url(../img/hero2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 350px;
+   padding: 2rem;
+   position: relative; /**Posicion de la clase padre siempre el relativo**/
+   margin-bottom: 2rem;
+}
+.hero h2{
+   color: var(--blanco)
+}
+.contenido-hero{
+   position: absolute;
+   background-color: rgba(0, 0, 0, 0.7);/**sintaxis anterior**/
+   background-color:rgb(0 0 0 / 70%);
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left:0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content:center;
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+   color: var(--blanco);
+}
+
+
+/*Servicios*/
+@media (min-width: 768px) {
+   .servicios{
+      display: grid;
+      /* cualquiera de las siguientes tres formas se puede usar
+      grid-template-columns: 33.3% 33.33% 33.3%;
+      grid-template-columns: 1fr 1fr 1fr;*/
+      grid-template-columns: repeat(3,1fr);
+      column-gap: 2rem; /*Separacion de columnas*/
+   }   
+}
+
+/*Servicio*/
+
+.servicio{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-size: 2rem;
+}
+
+.servicio h3{
+   font-size: 2.5rem;
+   color: var(--secundario)
+}
+
+.servicio .icono{
+   height:10rem;
+   width: 10rem;
+   background-color: rgb(63, 62, 57,1);
+   border-radius: 50%;
+   display: flex;
+   justify-content:center;
+   align-items: center;
+}
+.servicio p{
+   text-align:justify;
+   line-height: 2.5rem; /*interlineado*/
+}
+
+/*Contacto*/
+.formulario {
+   padding: 3rem;
+   background-color: var(--gris);
+   width: min(70rem, 100%); /*utilicar el valor mas pequeño*/
+   margin: 0 auto; 
+   border-radius: 1rem;
+}
+
+.formulario fieldset{
+   border: none;
+}
+.formulario legend{
+   text-align: center;
+   font-size: 2.5rem;
+   font-weight: bold;
+   margin-bottom: 2rem;
+   color:var(--secundario);
+}
+@media (min-width: 768px) {
+   .contenedor-campos{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto 20rem;
+      column-gap: 1rem;
+   }
+
+   .campo:nth-child(3),
+   .campo:nth-child(4){
+      grid-column:1/3; /*para acomodar columnas*/
+   }
+}
+
+.campo {
+   margin-bottom: 2rem;
+}
+.campo label {
+   color: var(--secundario);
+   font-weight: bold;
+   margin-bottom: 1rem;
+   display: block;
+}
+.campo textarea{
+   height: 20rem;
+}
+.input-text{
+   width: 100%;
+   border: none;
+   padding: 1.5rem;  
+   border-radius: .5rem;
+}
+.footer{
+   text-align: center;  
+}
+
+.quien_soy{
+   max-width: 120rem;
+   margin: 0 auto 0 auto;
+   border-radius: 1rem;
+}
+
+.descripcion{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+
+.quien_soy__titulo{
+   padding-top: 1rem;
+}
+
+.descripcion__imagen{
+   width: 60%;
+   border-radius: 50%;
+   margin-left: 14rem;
+   padding-top: 8rem;
+}
+.descripcion__parrafo{
+   text-align:justify;
+   font-size: 2rem;
+   padding:2rem;
+}
+.sombra2{
+   -webkit-box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.75);
+   -moz-box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.75);
+   box-shadow: 0px 5px 25px -4px rgba(0,0,0,0.75);
+}
