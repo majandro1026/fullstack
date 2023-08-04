@@ -1,4 +1,5 @@
 :root{
+    
     --fuenteHeading: 'PT Sans', sans-serif;
     --fuenteParrafos: 'Open Sans', sans-serif;
     --primario: #784d3c;
@@ -62,9 +63,13 @@ img{
 }
 
 /*header*/
-
-.header{
+.webp .header{
+    background-image: url(../blogdecafe_inicio/img/banner.webp);
+}
+.no-webp .header{
     background-image: url(../blogdecafe_inicio/img/banner.jpg);
+}
+.header{
     height: 60rem;
     background-size: cover;
     background-repeat: no-repeat;
